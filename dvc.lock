@@ -1,0 +1,22 @@
+schema: '2.0'
+stages:
+  data_process:
+    cmd: python source/data_process.py data/telecom_churn.csv
+    deps:
+    - path: data/telecom_churn.csv
+      hash: md5
+      md5: 50162928756bb6d7ac7bcc82dc0b3b08
+      size: 128822
+    - path: source/data_process.py
+      hash: md5
+      md5: cf061ccf32b6793db8b68e1acafcaa6f
+      size: 1143
+    params:
+      params.yaml:
+        data_process.split_ratio: 0.2
+    outs:
+    - path: processed_data
+      hash: md5
+      md5: 6ada3261514988d5c23cd8983580786e.dir
+      size: 148220
+      nfiles: 2

@@ -1,0 +1,10 @@
+stages:
+  data_process:
+    cmd: python source/data_process.py data/telecom_churn.csv
+    deps:
+    - data/telecom_churn.csv
+    - source/data_process.py
+    params:
+    - data_process.split_ratio
+    outs:
+    - processed_data

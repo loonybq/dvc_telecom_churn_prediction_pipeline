@@ -1,0 +1,3 @@
+data_process:
+  split_ratio: 0.20
+
