@@ -48,7 +48,7 @@ def train(data_file_name):
 if __name__ == "__main__":
 
     if len(sys.argv) < 2:
-        print("Please provide the name of the input trainign data file")
+        print("Please provide the name of the input training data file")
     else:
         data_file_name = sys.argv[1]
         
