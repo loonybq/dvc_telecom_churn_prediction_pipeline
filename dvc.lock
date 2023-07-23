@@ -37,19 +37,19 @@ stages:
         train.max_depth: 5
         train.min_samples_leaf: 1
         train.min_samples_split: 2
-        train.n_estimators: 200
+        train.n_estimators: 50
     outs:
     - path: model_dir/model.pkl
       hash: md5
-      md5: 6f1a7fb808e66397c65b4cc0e1feb231
-      size: 902216
+      md5: 6a42f75a26db7ad7f8a5e101df6fe935
+      size: 228986
   evaluate:
     cmd: python source/evaluate.py model_dir/model.pkl processed_data/out_test.csv
     deps:
     - path: model_dir/model.pkl
       hash: md5
-      md5: 6f1a7fb808e66397c65b4cc0e1feb231
-      size: 902216
+      md5: 6a42f75a26db7ad7f8a5e101df6fe935
+      size: 228986
     - path: source/evaluate.py
       hash: md5
       md5: cc738685b4869fe3483ab130cbce810f
@@ -57,5 +57,5 @@ stages:
     outs:
     - path: results/predictions_vs_actuals.csv
       hash: md5
-      md5: 722fdb3b97890e1e7300198f7d5e4436
+      md5: 0a9919673fcfff9840e50adfd80dc6f6
       size: 5244
