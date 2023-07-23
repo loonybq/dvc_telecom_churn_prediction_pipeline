@@ -1,0 +1,8 @@
+dvc
+dvclive
+pyaml
+ipykernel
+numpy
+scikit-learn
+pandas
+matplotlib

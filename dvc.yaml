@@ -8,3 +8,16 @@ stages:
     - data_process.split_ratio
     outs:
     - processed_data
+  train:
+    cmd: python source/train.py processed_data/out_train.csv
+    deps:
+    - processed_data/out_train.csv
+    - source/train.py
+    params:
+    - train.class_weight
+    - train.max_depth
+    - train.min_samples_leaf
+    - train.min_samples_split
+    - train.n_estimators
+    outs:
+    - model_dir/model.pkl

@@ -5,8 +5,8 @@ stages:
     deps:
     - path: data/telecom_churn.csv
       hash: md5
-      md5: 50162928756bb6d7ac7bcc82dc0b3b08
-      size: 128822
+      md5: c71b9e855c9cf3c67ceb7a57adc4b2e8
+      size: 128860
     - path: source/data_process.py
       hash: md5
       md5: cf061ccf32b6793db8b68e1acafcaa6f
@@ -17,6 +17,29 @@ stages:
     outs:
     - path: processed_data
       hash: md5
-      md5: 6ada3261514988d5c23cd8983580786e.dir
-      size: 148220
+      md5: 0d5ab6ebe62d1ba4d4f340f1cad6e819.dir
+      size: 148263
       nfiles: 2
+  train:
+    cmd: python source/train.py processed_data/out_train.csv
+    deps:
+    - path: processed_data/out_train.csv
+      hash: md5
+      md5: 9125791dddc9f037d7a3dd623accb5f0
+      size: 118615
+    - path: source/train.py
+      hash: md5
+      md5: 0387a2ce1b474756f8b3c92c161db32b
+      size: 1401
+    params:
+      params.yaml:
+        train.class_weight:
+        train.max_depth: 5
+        train.min_samples_leaf: 1
+        train.min_samples_split: 2
+        train.n_estimators: 200
+    outs:
+    - path: model_dir/model.pkl
+      hash: md5
+      md5: 8e56ce5c6acec83bb8d6928b38c95c16
+      size: 843957
