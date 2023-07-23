@@ -21,3 +21,38 @@ stages:
     - train.n_estimators
     outs:
     - model_dir/model.pkl
+  evaluate:
+    cmd: python source/evaluate.py model_dir/model.pkl processed_data/out_test.csv
+    deps:
+    - model_dir/model.pkl
+    - source/evaluate.py
+    outs:
+    - results/predictions_vs_actuals.csv
+# Copied from DVC live generated yaml
+metrics:
+- results/live/metrics.json
+plots:
+- results/live/plots/metrics:
+    x: step
+- results/live/plots/images
+- results/live/plots/sklearn/ROC Curve.json:
+    template: simple
+    x: fpr
+    y: tpr
+    title: Receiver operating characteristic (ROC)
+    x_label: False Positive Rate
+    y_label: True Positive Rate
+- results/live/plots/sklearn/Confusion-matrix.json:
+    template: confusion
+    x: actual
+    y: predicted
+    title: Confusion Matrix
+    x_label: True Label
+    y_label: Predicted Label
+- results/live/plots/sklearn/Precision-Recall Curve.json:
+    template: simple
+    x: recall
+    y: precision
+    title: Precision-Recall Curve
+    x_label: Recall
+    y_label: Precision
