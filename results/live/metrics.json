@@ -1,0 +1,7 @@
+{
+    "Test_accuracy_score": 0.8950524737631185,
+    "Test_precision_score": 0.6148148148148148,
+    "Test_recall_score": 0.8217821782178217,
+    "Test_f1_score": 0.7033898305084745,
+    "AUC_score": 0.8874155966833431
+}
